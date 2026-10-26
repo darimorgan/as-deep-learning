@@ -1,0 +1,112 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+
+\begin{document}
+
+\title{Multi-Agent Task Allocation with Deep Learning}
+
+\author{\IEEEauthorblockN{Daria Shushkova}
+\IEEEauthorblockA{Deep Learning -- Winter Term 2026/2027\\
+Hamm-Lippstadt University of Applied Sciences\\
+Lippstadt, Germany\\
+daria.shushkova@stud.hshl.de}}
+
+\maketitle
+
+\begin{abstract}
+Multi-Agent Task Allocation (MATA) is an important problem in multi-agent systems, where several autonomous agents must
+coordinate their actions to complete tasks efficiently. Task allocation becomes more difficult in dynamic environments,
+where new tasks may appear, agents have limited information, and some tasks require cooperation. Traditional approaches
+use optimization algorithms, auction-based methods, and predefined rules to assign tasks. Recent advances in Deep
+Reinforcement Learning (DRL) allow agents to learn task allocation strategies through interaction with their environment.
+
+This paper examines the application of Deep Learning to dynamic multi-agent task allocation, focusing on decentralized
+coordination and coalition formation. The theoretical foundations of Multi-Agent Reinforcement Learning (MARL) are
+discussed, followed by a case study of MARL-MRT$^2$A, which combines Multi-Agent Proximal Policy Optimization (MAPPO) with
+a U-Net architecture. The approach is examined using the GyMRT$^2$A simulation environment. An experimental reproduction
+investigates how task allocation performance changes during training by evaluating policies at different training stages.
+The evaluation considers episodic reward and task completion, with the market-based Project Manager-oriented Coalition
+Formation Algorithm (PCFA) serving as a comparison baseline.
+\end{abstract}
+
+\section{Introduction}
+Multi-agent systems consist of several autonomous agents that work in a shared environment to achieve individual or
+common goals. Each agent collects information about its surroundings through sensors and observations. Agents can
+exchange this information to coordinate their actions, avoid unnecessary work, and use available resources more
+efficiently. However, effective cooperation also requires deciding which agent should perform each task. This problem
+is known as Multi-Agent Task Allocation (MATA).
+
+Task planning in multi-agent systems includes three main problems: task decomposition, task allocation, and task
+scheduling \cite{tao2026survey}. Task decomposition divides complex tasks into smaller ones, task allocation assigns
+tasks to different agents, and task scheduling determines the order in which tasks should be completed. Task allocation
+is particularly important because agents may have different capabilities, locations, and available resources \cite{tao2026survey}.
+In multi-robot systems, some tasks may also require several robots to work together. Bezerra et al. illustrate this
+problem using emergency response, where multiple firetrucks must cooperate to handle incidents that cannot be managed
+by one vehicle alone \cite{bezerra2025coalition}.
+
+Task allocation becomes more difficult in dynamic environments, where new tasks may appear at any time and agents have
+limited information about their surroundings. For example, an emergency incident may require multiple rescue robots,
+while a smaller task can be completed by a single robot. Traditional task allocation approaches include optimization
+algorithms, auction-based methods, and predefined rules \cite{tao2026survey}. More recent approaches use Deep
+Reinforcement Learning (DRL), which allows agents to learn task allocation strategies through interaction with their
+environment \cite{dai2025heterogeneous,bezerra2025coalition}.
+
+Communication is an important part of decentralized task allocation. By sharing information about their observations,
+selected tasks, and planned actions, agents can make better decisions and coordinate their work. However, communication
+may become unreliable due to limited network coverage, interference, or message loss. Missing information can lead to
+repeated task assignments, delays, and problems when several agents need to complete a task together. These
+challenges highlight the importance of adaptive coordination strategies in dynamic multi-agent environments \cite{verma2025communication,yang2025priors}.
+
+The practical part of this paper focuses on how Deep Reinforcement Learning can support cooperation between agents in
+dynamic task allocation. MARL-MRT$^2$A is used as a case study to examine how task allocation performance develops during
+training, particularly for tasks requiring different levels of cooperation \cite{bezerra2025coalition}. The reproduced
+results are compared across training stages and considered alongside the traditional PCFA approach.
+
+\section{Problem Formulation}
+\begin{itemize}
+    \item Agents and tasks in a dynamic environment.
+    \item Task assignment and coalition formation.
+    \item Challenges of limited information and changing tasks.
+\end{itemize}
+
+\section{Deep Learning-Based Task Allocation}
+\begin{itemize}
+    \item Deep Learning approaches to task allocation.
+    \item Deep Reinforcement Learning and Multi-Agent Reinforcement Learning.
+    \item Learning task selection and coordination strategies.
+\end{itemize}
+
+\section{Use Case and Experimental Setup}
+\begin{itemize}
+    \item Multi-robot task allocation in emergency response.
+    \item MARL-MRT$^2$A and the GyMRT$^2$A simulation environment.
+    \item Experimental evaluation and comparison with PCFA.
+\end{itemize}
+
+\section{Results and Evaluation}
+\begin{itemize}
+    \item How performance changes during training (comparison of saved model checkpoints).
+    \item Task completion and reward results.
+    \item Comparison with this Deep Learning approach with the classical PCFA.
+\end{itemize}
+
+\section{Discussion}
+\begin{itemize}
+    \item Advantages and limitations of Deep Learning for task allocation.
+    \item Challenges of applying the approach in real environments.
+\end{itemize}
+
+\section{Conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{mata}
+
+\end{document}

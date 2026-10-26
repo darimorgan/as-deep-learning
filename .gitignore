@@ -1,0 +1,13 @@
+# macOS metadata
+.DS_Store
+
+.tmp-tex/
+
+# Generated LaTeX files
+*.aux
+*.log
+*.out
+*.blg
+*.bbl
+
+!/train.log
